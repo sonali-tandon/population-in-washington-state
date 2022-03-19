@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChartJS project</title>
+    <style>
+        .container {
+            width: 70%;
+            margin: 0 auto; 
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+    <div class="container">
+        <canvas id="myChart" style="height: 1400; width: 1400;"></canvas>
+    </div>
+    <script>
+        var myChart = document.getElementById('myChart').getContext('2d');
+
+        var chartType = new Chart(myChart, {
+            type: 'bar', //bar, pie, doughnut, line, polarArea, radar, bubble, scatter
+            data: {
+                labels: ['Seattle', 'Spokane', 'Tacoma', 'Bellevue', 'Kent', 'Everett'],
+                datasets: [{
+                    label: 'Population',
+                    data: [787995, 230328, 222975, 151464, 134074, 112636],
+                    backgroundColor: ['blue', 'green', 'red', 'orange', 'purple', 'yellow'],
+                    borderWidth: 1,
+                    borderColor: 'grey',
+                    hoverBorderWidth: 4,
+                    hoverBorderColor: 'black'
+                }]
+            },
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Population in cities of Washington state',
+                        font:{
+                            size: 25
+                        }
+                    },
+                    legend: {
+                        position: 'right',
+                        labels:{
+                            font:{
+                                size: 15,
+                            },
+                            color: 'red'
+                        }
+                    }
+                    },
+                    animation: {
+            backgroundColor: {
+            type: 'color',
+            duration: 1000,
+            easing: 'linear',
+            from: 'red',
+            to: 'blue',
+            loop: true
+                }
+    }
+                
+            }
+        });
+    </script>
+
+</body>
+
+</html>
